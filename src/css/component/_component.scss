@@ -1,9 +1,23 @@
 // pagenation
 
 .pagenation {
+  margin: auto;
+  text-align: center;
   .page-index {
+    display: inline-block;
     a {
-
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      color: #333;
+      background: #ededed;
+      &. hover {
+        background: #333;
+      }
+      .first,.prev,.next,.end {
+        background: transparent;
+        color: #333333;
+      }
     }
   }
 }
