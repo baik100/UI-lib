@@ -1,0 +1,68 @@
+/* design selectbox */
+
+.designSelectW {
+    display: inline-block;
+}
+.select-content {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.select-title {
+    border: 1px solid #ccc;
+    height: 36px;
+    line-height: 36px;
+    position: relative;
+}
+.select-title:before {
+    content:'';
+    background: url(/kooramework/assets/img/sub/arrow-down-sm.png) 0 0 no-repeat;
+    position: absolute;
+    top: 15px;
+    right: 12px;
+    width: 8px;
+    height: 4px;
+}
+.select-content a {
+    padding: 0 8px;
+    line-height: 36px;
+    display: block;
+    font-size: 15px;
+}
+.select-content a:hover,
+.select-content a:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+.select-content .select-title a {
+    display: block;
+    color: #333;
+}
+.select-content .select-list {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    border: 1px solid $primary-color;
+    background: #fff;
+}
+.select-content .select-list a {
+    color: #333;
+}
+.select-content .select-list a:hover {
+    background: #f8f8f8;
+}
+
+@media screen and (max-width: 768px) {
+    .select-content a {
+        font-size: 12px;
+        line-height: 32px;
+    }
+    .select-title:before {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+

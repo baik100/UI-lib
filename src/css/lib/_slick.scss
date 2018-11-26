@@ -1,0 +1,245 @@
+/* Slick Slider */
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+.slick-slide:focus {
+    outline: 0;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+
+
+// dots square
+.dots-square {
+    .slick-dots{
+        position: absolute;
+        bottom: 60px;
+        text-align: center;
+        left: 0;
+        right: 0;
+        font-size: 0;
+        @include screen-sm {
+            .acer-visual & {
+                display: none!important;
+            }
+            bottom: 0;
+        }
+        .notice-event & {
+            bottom: 0;
+        }
+        li{
+            display: inline-block;
+            margin: 0 2px;
+            button{
+                display: block;
+                width: 20px;
+                height: 4px;
+                padding: 0;
+                background: #fff;
+                text-indent: -99999em;
+                cursor: pointer;
+                border: 0;
+                font-size: 0;
+                .products-review & {
+                    width: 15px;
+                    height: 2px;
+                }
+                .notice-event & {
+                    background: #e4e4e4;
+                }
+                &:focus {
+                    outline: 0;
+                }
+            }
+            .acer-visual &.slick-active button,
+            .products-review &.slick-active button {
+                background: $point-color;
+            }
+            .notice-event &.slick-active button {
+                background: #222;
+            }
+        }
+    }
+}
+
+
+
+// slick arrows
+.slick-arrow-angle {
+    .slick-arrow {
+        font-size: 0;
+        position: absolute;
+        top: 50%;
+        z-index: 100;
+        width: 50px;
+        height: 70px;
+        border: 0;
+        background: transparent;
+        .acer-visual & {
+            left: 50%;
+            margin-top: -35px;
+            @include screen-lg {
+                left:auto;
+            }
+            @include screen-sm {
+                -webkit-background-size: 18px;
+                background-size: 18px;
+            }
+        }
+        .notice-event & {
+            top: 130px;
+            width: 45px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.6);
+            @include screen-md {
+                top: 95px;
+            }
+            @include screen-sm {
+                display: none!important;
+            }
+        }
+        &:focus {
+            outline: 0;
+        }
+    }
+    .slick-prev {
+        background:  url(../img/angle-left.png) 50% no-repeat;
+        .acer-visual & {
+            margin-left: -600px;
+            @include screen-lg {
+                margin-left: 0;
+                left: 50px;
+            }
+            @include screen-sm {
+                left: 0;
+            }
+        }
+        .notice-event & {
+            background-image: url(../img/angle-sm-left.png);
+            left: 20px;
+        }
+    }
+    .slick-next {
+        background:  url(../img/angle-right.png) 50% no-repeat;
+        .acer-visual & {
+            margin-left: 550px;
+            @include screen-lg {
+                margin-left: 0;
+                right: 50px;
+            }
+            @include screen-sm {
+                right: 0;
+            }
+        }
+        .notice-event & {
+            background-image: url(../img/angle-sm-right.png);
+            right: 20px;
+        }
+    }
+}

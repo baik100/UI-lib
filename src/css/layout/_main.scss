@@ -1,0 +1,20 @@
+/**
+ Main page style
+*/
+
+
+.list {
+  width: 800px;
+  margin: 0 auto;
+  ul {
+    li {
+      height: 30px;
+      background: #dddddd;
+      a {
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+      }
+    }
+  }
+}

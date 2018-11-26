@@ -1,0 +1,299 @@
+//mixin usage
+
+
+//box shadow
+
+@mixin box_shadow ($level) {
+  @if $level == 1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  } @else if $level == 2 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  } @else if $level == 3 {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  } @else if $level == 4 {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  } @else if $level == 5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+// overlay
+@mixin overlay($alpha){
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, $alpha);
+}
+
+
+// scale
+@mixin scale ($value){
+  -webkit-transform: scale($value);
+  -moz-transform: scale($value);
+  -ms-transform: scale($value);
+  -o-transform: scale($value);
+  transform: scale($value);
+}
+
+
+
+// transition
+@mixin transition($duration){
+  -webkit-transition: all $duration+s;
+  -moz-transition: all $duration+s;
+  -ms-transition: all $duration+s;
+  -o-transition: all $duration+s;
+  transition: all $duration+s;
+}
+
+// mutiple transition delay
+@mixin transitionDelay($length, $val){
+  @for $i from 1 through $length {
+    &:nth-child(#{$i}) {
+    -webkit-transition-delay: ($i * $val)+s;
+    -moz-transition-delay: ($i * $val)+s;
+    -ms-transition-delay: ($i * $val)+s;
+    -o-transition-delay: ($i * $val)+s;
+    transition-delay: ($i * $val)+s;
+    }
+  }
+}
+
+//translate
+@mixin translate($val1, $val2){
+  -webkit-transform: translate($val1, $val2);
+  -moz-transform: translate($val1, $val2);
+  -ms-transform: translate($val1, $val2);
+  -o-transform: translate($val1, $val2);
+  transform: translate($val1, $val2);
+}
+
+
+// Push auto
+@mixin push-auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+// font style
+@mixin fs($fz, $c, $fw){
+  font-size: $fz + px;
+  color: $c;
+  font-weight: $fw;
+}
+
+// Set a rem font size with pixel fallback
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+//Usage:
+//p {
+//  @layout font-size(14px)
+//}
+
+
+
+// Pseudo
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+//Usage:
+//div::after {
+//  @layout pseudo;
+//  top: -1rem; left: -1rem;
+//  width: 1rem; height: 1rem;
+//}
+
+
+
+// Responsive ratio
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+
+
+
+// CSS triangles
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
+  @include pseudo($pos: $position);
+  width: 0;
+  height: 0;
+  @if $round {
+    border-radius: 3px;
+  }
+  @if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+    margin-top: 0 - round( $size / 2.5 );
+  } @else if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    margin-bottom: 0 - round( $size / 2.5 );
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+    margin-right: -$size;
+  } @else if  $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+    margin-left: -$size;
+  }
+}
+
+
+// Placeholders
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+//Usage:
+//input,
+//textarea {
+//  @layout input-placeholder {
+//    color: $grey;
+//  }
+//}
+
+
+
+// Media queries
+@mixin screen-lg {
+  @media only screen and (max-width: 1260px) {
+    @content;
+  }
+}
+@mixin screen-md {
+  @media only screen and (max-width: 992px) {
+    @content;
+  }
+}
+@mixin screen-sm {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin screen-xs {
+  @media only screen and (max-width: 542px) {
+    @content;
+  }
+}
+//Usage:
+//.sidebar {
+//  @layout xs {
+
+//  }
+//}
+
+
+
+// Animations and keyframes
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+//Usage:
+//@layout keyframes(slide-down) {
+//  0% { opacity: 1; }
+//  90% { opacity: 0; }
+//}
+//
+//.element {
+//  width: 100px;
+//  height: 100px;
+//  background: black;
+//  @layout animation('slide-down 5s 3');
+//}
+
+
+
+// Truncate
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+// Clearfix
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+//Usage:
+//.container-with-floated-children {
+//  @extend %clearfix;
+//}
+
+
+
+// Visually hide an element
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+//Usage:
+//.visually-hidden {
+//  @extend %visuallyhidden;
+//}
