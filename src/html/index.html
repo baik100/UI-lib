@@ -1,30 +1,24 @@
-<!doctype html>
+<!docutype html>
 <html lang="ko">
 <!-- S: head -->
-
+<include src="./layout/head.html" title="UI_lib"></include>
 <!-- E: head -->
 <body>
-<header class="header">
-    <h1 class="home"><i class="material-icons">home</i></h1>
-    <nav>
-        <ul>
-            <li class="nav-item"><a href="#!"></a></li>
-            <li class="nav-item"><a href="#!"></a></li>
-            <li class="nav-item"><a href="#!"></a></li>
-            <li class="nav-item"><a href="#!"></a></li>
-            <li class="nav-item"><a href="#!"></a></li>
-            <li class="nav-item"><a href="#!"></a></li>
-        </ul>
-    </nav>
-</header>
-<div class="list">
-    <ul>
-        <li><a href="./component/lodash.html">Lodash</a></li>
-        <li><a href="./component/component_pages.html">Pagenation</a></li>
-    </ul>
+<!-- S: header -->
+<include src="./layout/header.html"></include>
+<!-- B: header -->
+<div id="warp">
+    <div class="container">
+        <div class="lib_list">
+            <ul>
+                <li><a href="./component/lodash.html">Lodash</a></li>
+                <li><a href="./component/component_pages.html">Pagenation</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 <!-- S: footer -->
-
+<include src="./layout/footer.html"></include>
 <!-- E: footer -->
 </body>
 </html>
