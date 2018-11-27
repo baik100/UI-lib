@@ -2,7 +2,7 @@
 
 .pagenation {
   margin: 50px auto;
-  width: 520px;
+  width: 500px;
   .page-index {
     height: 20px;
     ul {
@@ -10,21 +10,47 @@
         display: inline-block;
         vertical-align: middle;
         text-align: center;
-        width: 20px;
-        height: 20px;
-        margin: 0 5px;
+        width: 24px;
+        height: 24px;
+        padding: 6px 0 0 0;
+        background: #ededed;
+        &:hover {
+          background: #333;
+          a {
+            color: #d7d7d7;
+          }
+        }
+        &.first, &.prev, &.next, &.end {
+          background: none;
+          padding: 6px 0;
+          i {
+            color: #666;
+            font-size: 16px;
+          }
+        }
         a {
           font-size: 12px;
-          }
-        .page {
-          background: #ededed;
           color: #333;
-          &:hover {
-            background: #333;
-            color: #999;
-          }
         }
       }
     }
+  }
+}
+
+
+/* to do list */
+.todolist {
+  margin: 50px auto;
+  input {
+    display: inline-block;
+    width: 600px;
+    height: 80px;
+    border-bottom: 1px solid #dddddd;
+  }
+  .submit {
+    float: right;
+    width: 100px;
+    height: 80px;
+    background: #ff6600;
   }
 }
