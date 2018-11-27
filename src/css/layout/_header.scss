@@ -6,26 +6,31 @@ header {
   left: 0;
   right: 0;
   height: 80px;
-  background: #666;
-  padding: 30px 0;
+  background: #ededed;
   h1 {
     float: left;
+    line-height: 80px;
     a {
-      color: #fff;
-      font-size: 30px;
+      color: #999;
+      font-size: 14px;
       font-weight: 600;
     }
   }
-  
   nav {
+    float: right;
     ul {
       .nav-item {
-        float: left;
+        display: inline-block;
+        text-align: center;
+        width: 100px;
+        &:hover {
+          border-bottom: 3px solid #666666;
+        }
         a {
-          width: 100px;
-          color: #fff;
-          font-size: 20px;
+          color: #999;
+          font-size: 14px;
           font-weight: 600;
+          line-height: 77px;
         }
       }
     }

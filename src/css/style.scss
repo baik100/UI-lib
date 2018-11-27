@@ -1,6 +1,5 @@
 // VARIABLE
 @import "variable";
-@import "module/mixin";
 
 // BASE CSS
 @import "base/reset";
@@ -8,8 +7,8 @@
 @import "base/font";
 
 // LIBRARY
-@import "lib/slick";
-@import "lib/selectbox";
+//@import "lib/slick";
+//@import "lib/selectbox";
 
 // MODULE
 @import "module/button";

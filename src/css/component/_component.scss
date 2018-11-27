@@ -1,22 +1,29 @@
-// pagenation
+/* Pagenation */
 
 .pagenation {
-  margin: auto;
-  text-align: center;
+  margin: 50px auto;
+  width: 520px;
   .page-index {
-    display: inline-block;
-    a {
-      width: 20px;
-      height: 20px;
-      font-size: 12px;
-      color: #333;
-      background: #ededed;
-      &. hover {
-        background: #333;
-      }
-      .first,.prev,.next,.end {
-        background: transparent;
-        color: #333333;
+    height: 20px;
+    ul {
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+        a {
+          font-size: 12px;
+          }
+        .page {
+          background: #ededed;
+          color: #333;
+          &:hover {
+            background: #333;
+            color: #999;
+          }
+        }
       }
     }
   }
