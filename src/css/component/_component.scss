@@ -41,16 +41,38 @@
 /* to do list */
 .todolist {
   margin: 50px auto;
+  min-width: 700px;
   input {
     display: inline-block;
     width: 600px;
-    height: 80px;
+    height: 60px;
     border-bottom: 1px solid #dddddd;
   }
   .submit {
-    float: right;
+    display: inline-block;
     width: 100px;
-    height: 80px;
+    height: 60px;
     background: #ff6600;
+    color: #ffffff;
+  }
+}
+
+/* design select box */
+
+.design-select {
+  margin: 50px auto;
+  min-width: 700px;
+  .selet-inner {
+    .select-title {
+      position: relative;
+      .select-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: #dedede;
+      }
+    }
   }
 }

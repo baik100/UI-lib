@@ -95,3 +95,21 @@ var uiExample = {
 };
 
 
+// design select box
+
+$(".select-title").click(function(e){
+    e.preventDefault();
+    if($(this).next(".select-contents").css("display")=="block"){
+        $(this).next(".select-contents").toggle();
+    }else{
+        $(".select-contents").hide();
+        $(this).next(".select-contents").toggle();
+    }
+});
+$("body").click(function(e){
+    var container = $(".slct_trg");
+    var container1 = $(".slct_box");
+    if(!container.is(e.target) && container.has(e.target).length === 0 && !container1.is(e.target) && container1.has(e.target).length === 0){
+        container.next().css("display","none");
+    }
+});
